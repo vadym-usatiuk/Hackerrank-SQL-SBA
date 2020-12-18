@@ -1,0 +1,1 @@
+SELECT d.Name,  count(c.id) FROM department d INNER JOIN course c ON d.id = c.deptId GROUP BY c.deptId ORDER BY  COUNT(c.id) ASC, d.NAME ASC;

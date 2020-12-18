@@ -1,0 +1,31 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT s.firstname, s.lastname, 
+(SELECT CASE  
+    WHEN min(sc.progress) < 40 THEN 'F'
+    WHEN min(sc.progress) >= 40 
+    AND min(sc.progress) < 50 THEN 'D'
+    WHEN min(sc.progress) >= 50 
+    AND min(sc.progress) < 60 THEN 'C'
+    WHEN min(sc.progress) >= 60 
+    AND min(sc.progress) < 70 THEN 'B'
+    WHEN min(sc.progress) >= 70 THEN 'A'
+    ELSE 'ERRORS' END),
+(SELECT CASE  
+    WHEN max(sc.progress) < 40 THEN 'F'
+    WHEN max(sc.progress) >= 40 
+    AND max(sc.progress) < 50 THEN 'D'
+    WHEN max(sc.progress) >= 50 
+    AND max(sc.progress) < 60 THEN 'C'
+    WHEN max(sc.progress) >= 60 
+    AND max(sc.progress) < 70 THEN 'B'
+    WHEN max(sc.progress) >= 70 THEN 'A'
+    ELSE 'ERRORS' END)
+FROM student s 
+JOIN studentCourse sc 
+ON s.id = sc.studentId
+GROUP by s.id
+ORDER by 3 desc, 4 desc, 
+1 asc, 2 asc;

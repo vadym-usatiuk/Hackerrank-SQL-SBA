@@ -1,0 +1,13 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT c.name, count(*)
+FROM course c 
+LEFT JOIN facultyCourse fc
+ON c.id = fc.courseId
+LEFT JOIN studentCourse s
+ON c.id = s.courseId
+WHERE fc.facultyId is NULL
+GROUP BY c.name
+ORDER BY 2 desc, 1;

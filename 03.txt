@@ -1,0 +1,9 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT c.name, count(*)
+FROM studentCourse s INNER JOIN course c
+ON s.courseId = c.id
+GROUP BY s.courseId
+ORDER BY 2 desc, 1;

@@ -1,0 +1,13 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT s.firstname, s.lastname, count(*)
+FROM student s
+INNER JOIN studentCourse sc
+ON s.id = sc.studentId
+INNER JOIN course c
+ON sc.courseId = c.Id
+WHERE s.majorId = c.deptId
+GROUP BY s.firstname, s.lastname
+ORDER BY 3 desc, 1 asc, 2 asc;

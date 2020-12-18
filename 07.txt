@@ -1,0 +1,9 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT sc.startDate, count(distinct sc.studentId)
+FROM studentCourse sc
+WHERE month(sc.startDate) = 8
+GROUP BY sc.startDate
+ORDER BY 1 asc, 2 asc;

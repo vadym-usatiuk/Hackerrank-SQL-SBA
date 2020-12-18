@@ -1,0 +1,14 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT f.firstname, f.lastname, 
+CAST(avg(sc.progress) as decimal(3,1))
+FROM faculty f inner join facultyCourse fc
+ON f.id = fc.facultyId
+INNER JOIN course c
+ON fc.courseId = c.id
+INNER JOIN studentCourse sc
+ON c.id = sc.courseId
+GROUP BY f.firstname, f.lastname
+ORDER BY 3 desc, 1 asc, 2 asc;

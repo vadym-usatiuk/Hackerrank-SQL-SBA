@@ -1,0 +1,10 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT c.name, cast(avg(sc.progress) as decimal(3,1))
+FROM course c 
+INNER JOIN studentCourse sc
+ON c.id = sc.courseId
+GROUP BY c.name
+ORDER BY 2 desc, 1 asc;

@@ -1,0 +1,12 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+SELECT s.firstname, s.lastname, 
+cast(avg(sc.progress) as decimal(3,1))
+FROM student s
+INNER JOIN studentCourse sc
+ON s.id = sc.studentId
+GROUP BY s.firstname, s.lastname
+HAVING avg(sc.progress)  <= 50
+ORDER BY 3 desc, 1 asc, 2 asc;
